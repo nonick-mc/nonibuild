@@ -12,7 +12,7 @@ export function DiscordMessage({ components }: MessagePreviewProps) {
   if (!components.length) return null;
 
   return (
-    <div className='max-w-150'>
+    <div className='max-w-150 min-h-30'>
       {/* ContainerとSectionは一番幅の広いものに揃える */}
       <div className='grid grid-cols-[auto_1fr] gap-y-2'>
         {components.map((component, i) => (

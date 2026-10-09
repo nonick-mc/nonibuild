@@ -99,12 +99,15 @@ export function ComponentEmbedEditor() {
               activeTab === 'editor' && 'max-md:hidden',
             )}
           >
-            <div className='max-sm:p-4 p-6 bg-discord-background border rounded-xl'>
-              <Watch
-                control={form.control}
-                name='components'
-                render={(components) => <DiscordMessage components={components} />}
-              />
+            {/* 100dvh - sticky位置(80px) - 下余白(24px) - ボタン(36px) - gap(12px) */}
+            <div className='flex max-h-[calc(100dvh-152px)] flex-col bg-discord-background border rounded-xl'>
+              <div className='overflow-y-auto no-scrollbar scroll-fade-y max-sm:p-4 p-6'>
+                <Watch
+                  control={form.control}
+                  name='components'
+                  render={(components) => <DiscordMessage components={components} />}
+                />
+              </div>
             </div>
             <Button onClick={handleCreate}>
               <CheckIcon className='mt-0.5' />
