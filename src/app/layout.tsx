@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist_Mono, IBM_Plex_Mono, Noto_Sans_JP } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     default: 'nonibuild',
     template: '%s - nonibuild',
   },
+  description: 'Webサイト',
+  metadataBase: new URL('https://build.nonick.net'),
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0073f5',
 };
 
 export default function RootLayout({
