@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: 'nonibuild',
     template: '%s - nonibuild',
   },
-  description: 'Webサイト',
+  description: 'Discordに関連するコンテンツを生成するWebサイト',
   metadataBase: new URL('https://build.nonick.net'),
 };
 
