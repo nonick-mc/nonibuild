@@ -6,12 +6,13 @@ import { ComponentV2 } from './components-v2';
 
 export type MessagePreviewProps = {
   components: z.input<MessageUserComponentsSchema>;
+  author?: { name: string; avatarUrl: string };
 };
 
-export function DiscordMessage({ components }: MessagePreviewProps) {
+export function DiscordMessage({ components, author }: MessagePreviewProps) {
   if (!components.length) return null;
 
-  return (
+  const body = (
     <div className='max-w-150 min-h-30'>
       {/* ContainerとSectionは一番幅の広いものに揃える */}
       <div className='grid grid-cols-[auto_1fr] gap-y-2'>
@@ -29,6 +30,23 @@ export function DiscordMessage({ components }: MessagePreviewProps) {
             <ComponentV2 component={component} />
           </div>
         ))}
+      </div>
+    </div>
+  );
+
+  if (!author) return body;
+
+  return (
+    <div className='flex gap-3'>
+      {/* biome-ignore lint/performance/noImgElement: 静的サイトのため */}
+      <img
+        src={author.avatarUrl}
+        alt={author.name}
+        className='mt-0.5 size-10 shrink-0 rounded-full'
+      />
+      <div className='min-w-0 flex-1'>
+        <span className='text-sm font-medium leading-none'>{author.name}</span>
+        <div className='mt-1'>{body}</div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import z from 'zod';
 import { ComponentsV2Editor } from '@/components/discord/components-v2-editor';
 import { defaultComponentValues } from '@/components/discord/components-v2-editor/schema';
 import { DiscordMessage } from '@/components/discord/preview/message';
+import { Main } from '@/components/main';
 import { Navbar } from '@/components/navbar';
 import { ControlledFieldError, ControlledFieldProvider } from '@/components/rhf/field';
 import { Button } from '@/components/ui/button';
@@ -60,7 +61,7 @@ export function ComponentEmbedEditor() {
       <Navbar page='component-embeds'>
         <AboutDialog />
       </Navbar>
-      <main className='mx-auto flex w-full max-w-350 flex-1 flex-col gap-3 p-6'>
+      <Main>
         <ControlledFieldProvider control={form.control} name='components'>
           <ControlledFieldError />
         </ControlledFieldProvider>
@@ -115,7 +116,7 @@ export function ComponentEmbedEditor() {
             </Button>
           </div>
         </div>
-      </main>
+      </Main>
       <CreateDialog embed={created} onOpenChange={(open) => !open && setCreated(null)} />
     </FormProvider>
   );
